@@ -14,7 +14,7 @@ public class UpdateCarCommand
         testDb = db;
     }
 
-    public void Handler()
+    public void Handle()
     {
         var car = testDb.Car.SingleOrDefault(p => p.Id == CarId);
         if (car ==null)

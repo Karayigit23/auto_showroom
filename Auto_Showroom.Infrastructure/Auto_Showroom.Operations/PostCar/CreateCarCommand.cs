@@ -13,7 +13,7 @@ public class CreateCarCommand
         
     }
 
-    public void Handler()
+    public void Handle()
     {
         var car = testDb.Car.SingleOrDefault(p => p.Model == Test.Model);
         if (car !=null)
