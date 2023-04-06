@@ -23,6 +23,6 @@ public class GetCarByIDQuery
         cr.Model = car.Model; 
         cr.Price = car.Price;
 
-            return cr;
+        return cr;
     }
 }
