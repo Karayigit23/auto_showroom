@@ -58,6 +58,8 @@ public class CarController:ControllerBase
             CreateCarCommandValidator validator = new CreateCarCommandValidator();
             validator.ValidateAndThrow(command);
             command.Handle();
+           
+ 
 
         }
         catch (Exception ex)
@@ -81,6 +83,7 @@ public class CarController:ControllerBase
             UpdateCarValidator validator = new UpdateCarValidator();
             validator.ValidateAndThrow(update);
             update.Handle();
+            
         }
         catch (Exception ex)
         {
