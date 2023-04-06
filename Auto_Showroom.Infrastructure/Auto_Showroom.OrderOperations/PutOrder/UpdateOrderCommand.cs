@@ -18,7 +18,7 @@ public class UpdateOrderCommand
             var order = testDb.Order.SingleOrDefault(p => p.PersonId == PersonId);
             if (order ==null)
             {
-                throw new InvalidOperationException("Vehicle with this Id not found");
+                throw new InvalidOperationException("Order with this PersonId not found");
             }
 
             order.PersonName = Test.PersonName != default ? Test.PersonName : order.PersonName;
