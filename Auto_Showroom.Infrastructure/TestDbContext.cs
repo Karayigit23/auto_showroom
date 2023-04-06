@@ -11,4 +11,5 @@ public class TestDbContext:DbContext
 
     public DbSet<Car> Car { get; set; }
     public DbSet<Orderİtem> Orderİtem { get; set; }
+    public DbSet<Order>Order { get; set; }
 }

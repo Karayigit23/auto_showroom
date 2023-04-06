@@ -16,6 +16,7 @@ public class CreateCarCommand
     public void Handle()
     {
         var car = testDb.Car.SingleOrDefault(p => p.Model == Test.Model);
+      
         if (car !=null)
         {
             throw new InvalidOperationException("this car is registered");
