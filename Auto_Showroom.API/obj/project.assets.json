@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom/Auto_Showroom.csproj",
-      "projectName": "Auto_Showroom",
-      "projectPath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom/Auto_Showroom.csproj",
+      "projectUniqueName": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/Auto_Showroom.API.csproj",
+      "projectName": "Auto_Showroom.API",
+      "projectPath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/Auto_Showroom.API.csproj",
       "packagesPath": "/Users/yigit/.nuget/packages/",
-      "outputPath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom/obj/",
+      "outputPath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/yigit/.nuget/NuGet/NuGet.Config"
