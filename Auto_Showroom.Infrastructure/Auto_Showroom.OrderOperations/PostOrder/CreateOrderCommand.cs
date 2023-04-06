@@ -6,7 +6,7 @@ namespace Auto_Showroom.Infrastructure.Auto_Showroom.OrderOperations.PostOrder;
 public class CreateOrderCommand
 {
     public CreateOrderTest Test { get; set; }
-    public Orderİtem Item { get; set;}
+    public OrderItem Item { get; set;}
     private readonly TestDbContext testDb;
     public CreateOrderCommand(TestDbContext db )
     {
@@ -27,7 +27,7 @@ public class CreateOrderCommand
             order = new Order();
             order.PersonName = Test.PersonName;
             order.OrderDate = Test.OrderDate;
-            order.Orderİtem.Id = Item.Id;
+            order.OrderItem.Id = Item.Id;
         }
 
         testDb.Order.Add(order);

@@ -23,7 +23,7 @@ public class GetOrderQuery
             or.Add(new OrderViewTest()
             {
                 PersonName = order.PersonName,
-                Orderİtem = order.Orderİtem,
+                OrderItem = order.OrderItem,
                 OrderDate = order.OrderDate
 
 

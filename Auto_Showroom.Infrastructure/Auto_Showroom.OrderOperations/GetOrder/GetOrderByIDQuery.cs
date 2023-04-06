@@ -21,7 +21,7 @@ public class GetOrderByIDQuery
 
         or.PersonName= order.PersonName; 
         or.OrderDate = or.OrderDate;
-        or.Orderİtem = or.Orderİtem;
+        or.OrderItem = or.OrderItem;
 
         return or;
     }

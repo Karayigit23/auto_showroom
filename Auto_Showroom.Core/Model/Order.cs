@@ -4,7 +4,7 @@ public class Order
 {
     public int PersonId { get; set; }
     public string PersonName { get; set; } 
-    public Orderİtem Orderİtem { get; set; }
+    public OrderItem OrderItem { get; set; }
     public DateTime OrderDate { get; set; }
     
 }
