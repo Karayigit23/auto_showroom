@@ -16,8 +16,4 @@
       <ProjectReference Include="..\Auto_Showroom.Core\Auto_Showroom.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Auto_Showroom.OrderOperations\" />
-    </ItemGroup>
-
 </Project>
