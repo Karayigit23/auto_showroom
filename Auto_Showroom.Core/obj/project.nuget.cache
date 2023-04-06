@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2UJdn1zyVWhGgBKlNZVZQ4gVPI7S3c4jp1JadGadV/le4oK1T801h2jhZJbJjQYiQA2b7z3gt2iglAY1o1fqwA==",
+  "dgSpecHash": "hw7lDC1MlZqOttBfKHxpgtwy6CeejWE1JgQKZMOhTGWsQHWcAyMKzvc7FtjhCI1RYgW4OO9rMPycZzrHV8HRrQ==",
   "success": true,
   "projectFilePath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.Core/Auto_Showroom.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/yigit/.nuget/packages/mediatr/12.0.1/mediatr.12.0.1.nupkg.sha512",
+    "/Users/yigit/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/yigit/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

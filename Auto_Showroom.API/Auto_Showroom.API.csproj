@@ -7,4 +7,8 @@
         <RootNamespace>Auto_Showroom</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Auto_Showroom.Infrastructure\Auto_Showroom.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
