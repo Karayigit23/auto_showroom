@@ -14,20 +14,8 @@ public class GetCarQuery
 
     public List<CarViewTest> Handle()
     {
-        var carlist = testDb.Car.OrderBy(p => p.Id).ToList<Car>();
-        List<CarViewTest> cr = new List<CarViewTest>();
-        foreach (var car in carlist)
-        {
-            cr.Add(new CarViewTest()
-            {
-                Model = car.Model,
-                Price = car.Price
-
-            });
-
-        }
-
-        return cr;
+         testDb.Car.OrderBy(p => p.Id).
+     
     }
 
    

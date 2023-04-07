@@ -12,17 +12,17 @@ namespace Auto_Showroom.Controllers;
 [Route("carcontroller")]
 public class CarController:ControllerBase
 {
-    private readonly TestDbContext testDb;
+    private readonly AppDbContext _appDb;
 
-    public CarController(TestDbContext db)
+    public CarController(AppDbContext db)
     {
-        testDb = db;
+        _appDb = db;
     }
 
     [HttpGet]
     public IActionResult Get()
     {
-        GetCarQuery query = new GetCarQuery(testDb);
+        GetCarQuery query = new GetCarQuery(_appDb);
         var result = query.Handle();
         return Ok(result);
     }
@@ -33,7 +33,7 @@ public class CarController:ControllerBase
         CarViewTest result;
         try
         {
-            GetCarByIDQuery query = new GetCarByIDQuery(testDb);
+            GetCarByIDQuery query = new GetCarByIDQuery(_appDb);
             query.CarId = CarId;
             CarValidator validator = new CarValidator();
             validator.ValidateAndThrow(query);
@@ -51,7 +51,7 @@ public class CarController:ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] CreateCarTest newCar)
     {
-        CreateCarCommand command = new CreateCarCommand(testDb);
+        CreateCarCommand command = new CreateCarCommand(_appDb);
         try
         {
             command.Test = newCar;
@@ -77,7 +77,7 @@ public class CarController:ControllerBase
     {
         try
         {
-            UpdateCarCommand update = new UpdateCarCommand(testDb);
+            UpdateCarCommand update = new UpdateCarCommand(_appDb);
             update.CarId = CarId;
             update.Test = updateCar;
             UpdateCarValidator validator = new UpdateCarValidator();
@@ -97,7 +97,7 @@ public class CarController:ControllerBase
     [HttpDelete("{CarId}")]
     public IActionResult Delete(int CarId)
     {
-        DeleteCarCommand delete= new DeleteCarCommand(testDb);
+        DeleteCarCommand delete= new DeleteCarCommand(_appDb);
         delete.CarId = CarId;
         DeleteCarValidator validator = new DeleteCarValidator();
         validator.ValidateAndThrow(delete);

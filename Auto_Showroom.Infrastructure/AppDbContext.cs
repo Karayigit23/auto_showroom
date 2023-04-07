@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Auto_Showroom.Infrastructure;
 
-public class TestDbContext:DbContext
+public class AppDbContext:DbContext
 {
-    public TestDbContext(DbContextOptions options) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
 
