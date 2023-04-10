@@ -1,108 +1,64 @@
-using Auto_Showroom.Core.Dtos;
-using Auto_Showroom.Infrastructure;
-using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.DeleteCar;
+using Auto_Showroom.Core.Command;
+using Auto_Showroom.Core.Model;
 using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.GetCar;
-using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.GetCar.Validator;
 using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.PostCar;
-using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.PutCar;
-using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Auto_Showroom.Controllers;
 [Route("carcontroller")]
 public class CarController:ControllerBase
 {
-    private readonly AppDbContext _appDb;
+   
+    private readonly IMediator _mediator;
 
-    public CarController(AppDbContext db)
+    public CarController(IMediator mediator)
     {
-        _appDb = db;
+      
+        _mediator = mediator;
     }
 
     [HttpGet]
-    public IActionResult Get()
+    public async Task<List<Car>> Get()
     {
-        GetCarQuery query = new GetCarQuery(_appDb);
-        var result = query.Handle();
-        return Ok(result);
+        
+       return await _mediator.Send(new GetAllCarQuery());
+        
     }
 
     [HttpGet("{CarId}")]
-    public IActionResult GetById(int CarId)
+    public async Task<Car> GetById(int CarId)
     {
-        CarViewTest result;
-        try
-        {
-            GetCarByIDQuery query = new GetCarByIDQuery(_appDb);
-            query.CarId = CarId;
-            CarValidator validator = new CarValidator();
-            validator.ValidateAndThrow(query);
-            result = query.Handle();
-
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
-
-        return Ok(result);
+        
+        return await _mediator.Send( request: new GetCarByIDQuery());
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] CreateCarTest newCar)
+    public async Task Post ([FromBody] CreateCarCommand newCar)
     {
-        CreateCarCommand command = new CreateCarCommand(_appDb);
-        try
-        {
-            command.Test = newCar;
-            CreateCarCommandValidator validator = new CreateCarCommandValidator();
-            validator.ValidateAndThrow(command);
-            command.Handle();
-           
- 
+        await _mediator.Send(newCar);
 
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-
-
-        }
-
-        return Ok();
     }
 
     [HttpPut("{CarId}")]
-    public IActionResult Put(int CarId, [FromBody] UpdateCarTest updateCar)
+    public async Task Put(int CarId, [FromBody] UpdateCarQuery updateCar)
     {
-        try
+        if (CarId!=updateCar.Id)
         {
-            UpdateCarCommand update = new UpdateCarCommand(_appDb);
-            update.CarId = CarId;
-            update.Test = updateCar;
-            UpdateCarValidator validator = new UpdateCarValidator();
-            validator.ValidateAndThrow(update);
-            update.Handle();
-            
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-            
+            BadRequest();
         }
 
-        return Ok();
+        await _mediator.Send(updateCar);
     }
 
     [HttpDelete("{CarId}")]
-    public IActionResult Delete(int CarId)
+    public async Task Delete(int CarId)
     {
-        DeleteCarCommand delete= new DeleteCarCommand(_appDb);
-        delete.CarId = CarId;
-        DeleteCarValidator validator = new DeleteCarValidator();
-        validator.ValidateAndThrow(delete);
-        delete.Handle();
-        return Ok();
+        var delete = new DeleteCarQuery();
+       await _mediator.Send(delete);
     }
     
 }
+
+

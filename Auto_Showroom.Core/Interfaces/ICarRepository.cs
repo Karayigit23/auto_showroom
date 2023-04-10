@@ -2,11 +2,11 @@ using System.Linq.Expressions;
 using Auto_Showroom.Core.Model;
 
 namespace Auto_Showroom.Core.Interfaces;
-public interface IRepository
+public interface ICarRepository
 {
-    Task<List<Car>> GetCar();
+    Task<List<Car>> GetCars();
     Task<Car> GetCarById(int id);
     Task AddCar(Car car);
     Task UpdateCar(Car car);
-    Task DeleteCar(int id);
+    Task DeleteCar(Car car);
 }

@@ -1,24 +1,26 @@
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Auto_Showroom.Core.Command;
 
-public class DeleteCarQuery:IRequest<Car>
+public class DeleteCarQuery:IRequest
 {
     public int Id { get; set; }
 }
-public class DeleteCarQueryHandle : IRequestHandler<DeleteCarQuery, Car>
+public class DeleteCarQueryHandle : IRequestHandler<DeleteCarQuery>
 {
-    private readonly IRepository _repository;
-    public DeleteCarQueryHandle(IRepository repository)
+    private readonly ICarRepository _carRepository;
+    public DeleteCarQueryHandle(ICarRepository carRepository)
     {
-        _repository = repository;
+        _carRepository = carRepository;
     }
 
-    public async Task<Car> Handle(DeleteCarQuery request, CancellationToken cancellationToken)
+    public async Task Handle(DeleteCarQuery request, CancellationToken cancellationToken)
     {
-         await _repository.DeleteCar(request.Id);
-        return request.Id;
+        var car = await _carRepository.GetCarById(request.Id);
+        await _carRepository.DeleteCar(car);
+       
     }
 }  

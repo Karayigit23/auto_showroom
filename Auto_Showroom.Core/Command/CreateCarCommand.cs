@@ -1,34 +1,34 @@
-using Auto_Showroom.Core.Dtos;
+
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
-using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.GetCar;
 using MediatR;
 
 namespace Auto_Showroom.Infrastructure.Auto_Showroom.Operations.PostCar;
 
 
-public class CreateCarRequestCommand : IRequest<Car>
+public class CreateCarCommand : IRequest<Car>
 {
-    
+
     public decimal Price { get; set; }
     public string Model { get; set; }
 }
 
 
 
-public class CreateCarHandler:IRequestHandler<CreateCarRequestCommand,Car>
+public class CreateCarHandler:IRequestHandler<CreateCarCommand,Car>
 {
-    private readonly IRepository _repository;
-    public CreateCarHandler(IRepository repository)
+    private readonly ICarRepository _carRepository;
+    
+    public CreateCarHandler(ICarRepository carRepository )
     {
-        _repository = repository;
+        _carRepository = carRepository;
 
     }
 
 
    
 
-    public async Task<Car> Handle(CreateCarRequestCommand request, CancellationToken cancellationToken)
+    public async Task<Car> Handle(CreateCarCommand request, CancellationToken cancellationToken)
     {
 
 
@@ -51,7 +51,7 @@ public class CreateCarHandler:IRequestHandler<CreateCarRequestCommand,Car>
 
 
 
-      await _repository.AddCar(car);
+      await _carRepository.AddCar(car);
       return car;
 
 

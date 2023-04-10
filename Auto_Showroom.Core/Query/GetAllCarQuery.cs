@@ -9,17 +9,17 @@ public class GetAllCarQuery:IRequest<List<Car>>
     
     public class GetAllCarQueryHandler:IRequestHandler<GetAllCarQuery,List<Car>>
     {
-        private readonly IRepository _repository;
+        private readonly ICarRepository _carRepository;
 
-        public GetAllCarQueryHandler(IRepository repository)
+        public GetAllCarQueryHandler(ICarRepository carRepository)
         {
-            _repository = repository;
+            _carRepository = carRepository;
         }
         public async Task<List<Car>> Handle(GetAllCarQuery request, CancellationToken cancellationToken)
         {
-            var car = await _repository.GetCar();
+            return await _carRepository.GetCars();
 
-            return car;
+           
           
            
            
