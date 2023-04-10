@@ -1,27 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "MaJyzrm0Jr0QSOrBOXOffp4AFQhLlK8121h14bbHD+NlBlc+tUKJ4h/52dkIQ00v/CgW6TiIiTzEaBnvwWRNqg==",
+  "dgSpecHash": "a11tOatEGIcLyx18ly4QzuvPXVKmSAJ1M49vIibr4xojt17CeEvDDXwN0b5R50OiA+JWEndiJpI/NSLNCP7NVg==",
   "success": true,
   "projectFilePath": "/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.Core/Auto_Showroom.Core.csproj",
   "expectedPackageFiles": [
     "/Users/yigit/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512",
     "/Users/yigit/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "/Users/yigit/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
-    "/Users/yigit/.nuget/packages/mediatr/12.0.1/mediatr.12.0.1.nupkg.sha512",
-    "/Users/yigit/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/yigit/.nuget/packages/mediatr/11.1.0/mediatr.11.1.0.nupkg.sha512",
+    "/Users/yigit/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
     "/Users/yigit/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "/Users/yigit/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.0.1 was resolved.",
-      "libraryId": "MediatR",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

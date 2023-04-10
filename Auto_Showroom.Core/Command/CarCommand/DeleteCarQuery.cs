@@ -17,10 +17,10 @@ public class DeleteCarQueryHandle : IRequestHandler<DeleteCarQuery>
         _carRepository = carRepository;
     }
 
-    public async Task Handle(DeleteCarQuery request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeleteCarQuery request, CancellationToken cancellationToken)
     {
         var car = await _carRepository.GetCarById(request.Id);
         await _carRepository.DeleteCar(car);
-       
+       return Unit.Value; //mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)
     }
 }  

@@ -15,10 +15,10 @@ public class DeleteOrderCommandHandle : IRequestHandler<DeleteOrderCommand>
         _orderRepository = orderRepository;
     }
 
-    public async Task Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetById(request.Id);
         await _orderRepository.DeleteOrder(order);
-       
+       return Unit.Value; //mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)
     }
 }  
