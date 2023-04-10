@@ -1,6 +1,5 @@
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
-using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.GetCar;
 using MediatR;
 
 namespace Auto_Showroom.Core.Query.OrderQuery;
@@ -10,10 +9,10 @@ public class GetOrderByIDQuery:IRequest<Order>
     public int Id { get; set; }      
 }
 
-public class GetCarByIDHandle : IRequestHandler<GetOrderByIDQuery, Order>
+public class GetOrderByIDHandle : IRequestHandler<GetOrderByIDQuery, Order>
 {
     private readonly IOrderRepository _orderRepository;
-    public GetCarByIDHandle(IOrderRepository orderRepository)
+    public GetOrderByIDHandle(IOrderRepository orderRepository)
     {
         _orderRepository = orderRepository;
     }

@@ -1,7 +1,6 @@
 using Auto_Showroom.Core.Interfaces;
-using Auto_Showroom.Core.Model;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
+
 
 namespace Auto_Showroom.Core.Command;
 

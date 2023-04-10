@@ -44,10 +44,6 @@ public class CarController:ControllerBase
     [HttpPut("{CarId}")]
     public async Task Put(int CarId, [FromBody]  UpdateCarQuery updateCar)
     {
-        if (CarId!=updateCar.Id)
-        {
-            BadRequest();
-        }
 
         await _mediator.Send(updateCar);
     }

@@ -2,7 +2,7 @@ using MediatR;
 
 namespace Auto_Showroom.Core.Model;
 
-public class Car:EntityBase, IRequest
+public class Car:EntityBase
 {
    
     public decimal Price { get; set; }
