@@ -31,7 +31,7 @@ public class CarController:ControllerBase
     public async Task<Car> GetById(int CarId)
     {
         
-        return await _mediator.Send( request: new GetCarByIDQuery());
+        return await _mediator.Send( request: new GetCarByIDQuery{Id = CarId});
     }
 
     [HttpPost]
@@ -42,7 +42,7 @@ public class CarController:ControllerBase
     }
 
     [HttpPut("{CarId}")]
-    public async Task Put(int CarId, [FromBody] UpdateCarQuery updateCar)
+    public async Task Put(int CarId, [FromBody]  UpdateCarQuery updateCar)
     {
         if (CarId!=updateCar.Id)
         {
@@ -55,8 +55,8 @@ public class CarController:ControllerBase
     [HttpDelete("{CarId}")]
     public async Task Delete(int CarId)
     {
-        var delete = new DeleteCarQuery();
-       await _mediator.Send(delete);
+       
+       await _mediator.Send( new DeleteCarQuery{Id = CarId});
     }
     
 }
