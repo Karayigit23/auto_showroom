@@ -42,6 +42,7 @@ public class OrderController:ControllerBase
             BadRequest();
         }
 
+        updateOrder.OrderId = OrderId;
         await _mediator.Send(updateOrder);
     }
     [HttpDelete("{OrderId}")]

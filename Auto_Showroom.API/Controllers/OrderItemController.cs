@@ -6,15 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Auto_Showroom.Controllers;
 
-public class OrderItemController
+[ApiController]
+[Route("orderıtems")]
+public class OrderItemController:ControllerBase
 {
-    [ApiController]
-    [Route("orderıtems")]
-    public class OrderController : ControllerBase
-    {
-        private readonly IMediator _mediator;
+    private readonly IMediator _mediator;
 
-        public OrderController(IMediator mediator)
+        public OrderItemController(IMediator mediator)
         {
 
             _mediator = mediator;
@@ -27,5 +25,5 @@ public class OrderItemController
             return await _mediator.Send(new GetAllOrderItemQuery());
 
         }
-    }
+    
 }

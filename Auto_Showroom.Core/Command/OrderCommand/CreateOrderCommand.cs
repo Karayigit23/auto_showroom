@@ -31,7 +31,7 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Order>
     public async Task<Order> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
 
-      // sorun => orderItem Id yi order a ekleyemiyorum çünkü orderItemı orderı yaratırken yaratıyorum ve daha yaratılmamış Itemin ıd olamayacağı için ıd null kalıyor
+      //[Çözüldü] sorun => orderItem Id yi order a ekleyemiyorum çünkü orderItemı orderı yaratırken yaratıyorum ve daha yaratılmamış Itemin ıd olamayacağı için ıd null kalıyor
 
         
         var order = new Order
