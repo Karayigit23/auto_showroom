@@ -19,7 +19,7 @@ public class OrderRepository:IOrderRepository
 
     public Task<Order> GetById(int Id)
     {
-        return _context.Order.Where(p => p.OrderId == Id).FirstOrDefaultAsync();
+        return _context.Order.Where(p => p.Id == Id).FirstOrDefaultAsync();
     }
 
     public async Task AddOrder(Order order)

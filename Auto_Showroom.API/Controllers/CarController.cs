@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 
 namespace Auto_Showroom.Controllers;
-[Route("carcontroller")]
+[ApiController]
+[Route("cars")]
 public class CarController:ControllerBase
 {
    
@@ -44,7 +45,7 @@ public class CarController:ControllerBase
     [HttpPut("{CarId}")]
     public async Task Put(int CarId, [FromBody]  UpdateCarQuery updateCar)
     {
-
+        updateCar.Id = CarId;
         await _mediator.Send(updateCar);
     }
 

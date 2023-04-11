@@ -18,11 +18,6 @@ public class GetAllCarQuery:IRequest<List<Car>>
         public async Task<List<Car>> Handle(GetAllCarQuery request, CancellationToken cancellationToken)
         {
             return await _carRepository.GetCars();
-
-           
-          
-           
-           
         }
     }
 }

@@ -10,6 +10,6 @@ public class AppDbContext:DbContext
     }
 
     public DbSet<Car> Car { get; set; }
-    public DbSet<OrderItem> Orderİtem { get; set; }
+    public DbSet<OrderItem> OrderItem { get; set; }
     public DbSet<Order>Order { get; set; }
 }

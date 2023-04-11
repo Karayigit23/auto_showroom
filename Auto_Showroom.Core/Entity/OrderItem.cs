@@ -1,12 +1,9 @@
 namespace Auto_Showroom.Core.Model;
 
-public class OrderItem
+public class OrderItem:EntityBase
 {
-    public int OrderItemId { get; set; }
-    public int OrderId { get; set; }
-    public string Model { get; set; }
-    public decimal Price { get; set; }
     
-
+    public int CarId { get; set; }
+    public int Quantity { get; set; }
 }   
     

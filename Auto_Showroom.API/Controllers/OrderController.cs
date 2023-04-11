@@ -5,7 +5,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auto_Showroom.Controllers;
-[Route("ordercontroller")]
+[ApiController]
+[Route("orders")]
 public class OrderController:ControllerBase
 {
     private readonly IMediator _mediator;
