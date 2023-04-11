@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 builder.Services.AddMediatR(typeof(CreateCarCommand));
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddDbContext<AppDbContext>(p => p.UseSqlServer("Server =localhost, 1433; Database = testDB10; User Id =SA; Password =MyPass@word;Persist Security Info=False;Encrypt=False"));
