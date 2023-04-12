@@ -16,4 +16,12 @@ public class OrderItemRepository : IOrderItemRepository
     {
         return _context.OrderItem.ToListAsync();
     }
+
+    public Task<OrderItem> GetOrderItemById(int Id)
+    {
+        return _context.OrderItem.Where(p => p.OrderId == Id).FirstOrDefaultAsync();
+    }
+
+
+   
 }

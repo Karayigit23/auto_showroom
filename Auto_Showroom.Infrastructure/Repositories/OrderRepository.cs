@@ -36,7 +36,16 @@ public class OrderRepository:IOrderRepository
 
     public async Task DeleteOrder(Order order)
     {
-        _context.Order.Remove(order);
-        await _context.SaveChangesAsync();
+        var exOrder = await _context.Order
+                .Include(o => o.OrderItems)
+                .FirstOrDefaultAsync(o => o.Id == order.Id); 
+
+            if (exOrder != null)
+            {
+                _context.OrderItem.RemoveRange(exOrder.OrderItems);
+                _context.Order.Remove(exOrder); 
+                await _context.SaveChangesAsync(); 
+            }
+        
     }
 }

@@ -12,4 +12,14 @@ public class AppDbContext:DbContext
     public DbSet<Car> Car { get; set; }
     public DbSet<OrderItem> OrderItem { get; set; }
     public DbSet<Order>Order { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>().HasMany(o => o.OrderItems)
+            .WithOne()
+            .HasForeignKey(oi => oi.OrderId)
+            .OnDelete(DeleteBehavior.Cascade); 
+
+        base.OnModelCreating(modelBuilder);
+    }
 }

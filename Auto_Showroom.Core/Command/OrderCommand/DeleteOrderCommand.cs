@@ -10,15 +10,20 @@ public class DeleteOrderCommand:IRequest
 public class DeleteOrderCommandHandle : IRequestHandler<DeleteOrderCommand>
 {
     private readonly IOrderRepository _orderRepository;
-    public DeleteOrderCommandHandle(IOrderRepository orderRepository)
+    private readonly IOrderItemRepository _orderItemRepository;
+    public DeleteOrderCommandHandle(IOrderRepository orderRepository,IOrderItemRepository orderItemRepository )
     {
         _orderRepository = orderRepository;
+        _orderItemRepository = orderItemRepository;
     }
 
     public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetById(request.Id);
+      
+        
         await _orderRepository.DeleteOrder(order);
-       return Unit.Value; //mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)
+         //?? (çözüldü) sorun=>order başarılı bir şekilde siliniyor ama oluşturulan orderıtem silinen orderla beraber silinmiyor order ıtem delete işlemi yapılmaya çalışıldı ama başarılı olmadı
+       return Unit.Value; //(sorun değilmiş) mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)
     }
 }  

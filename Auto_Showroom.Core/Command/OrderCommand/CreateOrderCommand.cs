@@ -10,6 +10,8 @@ public class CreateOrderCommand:IRequest<Order>
     public string PersonName { get; set; } 
    
     public int Quantity { get; set; }
+    
+    public int Price { get; set; }
     public List<OrderItem> OrderItems { get; set; }
     
     
@@ -44,11 +46,13 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Order>
         foreach (var orderItem in request.OrderItems)
         {
             var orderıt = await _carRepository.GetCarById(orderItem.CarId);
-
+        
             var newOrderItem = new OrderItem()
             {
                 CarId = orderItem.CarId,
-                Quantity = orderItem.Quantity
+                Quantity = orderItem.Quantity,
+                Price = (int)(orderıt.Price*orderItem.Quantity)
+                
             };
             order.OrderItems.Add(newOrderItem);
         }
