@@ -13,17 +13,19 @@ public class CarController:ControllerBase
 {
    
     private readonly IMediator _mediator;
+    private readonly ILogger<CarController> _logger;
 
-    public CarController(IMediator mediator)
+    public CarController(IMediator mediator,ILogger<CarController> logger)
     {
       
         _mediator = mediator;
+        _logger = logger;
     }
 
     [HttpGet]
     public async Task<List<Car>> Get()
     {
-        
+        _logger.LogInformation(message:"All the cars have arrived");
        return await _mediator.Send(new GetAllCarQuery());
         
     }
@@ -43,7 +45,7 @@ public class CarController:ControllerBase
     }
 
     [HttpPut("{CarId}")]
-    public async Task Put(int CarId, [FromBody]  UpdateCarQuery updateCar)
+    public async Task Put(int CarId, [FromBody]  UpdateCarCommand updateCar)
     {
         updateCar.Id = CarId;
         await _mediator.Send(updateCar);
@@ -53,7 +55,7 @@ public class CarController:ControllerBase
     public async Task Delete(int CarId)
     {
        
-       await _mediator.Send( new DeleteCarQuery{Id = CarId});
+       await _mediator.Send( new DeleteCarCommand{Id = CarId});
     }
     
 }

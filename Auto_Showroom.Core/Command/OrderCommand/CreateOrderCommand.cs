@@ -1,7 +1,7 @@
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
-using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace Auto_Showroom.Core.Command.OrderCommand;
 
@@ -23,15 +23,18 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Order>
 {
     private readonly IOrderRepository _orderRepository;
     private readonly ICarRepository _carRepository;
+    private readonly ILogger<CreateOrderHandler> _logger;
    
 
-    public CreateOrderHandler(IOrderRepository orderRepository,ICarRepository carRepository)
+    public CreateOrderHandler(IOrderRepository orderRepository,ICarRepository carRepository,ILogger<CreateOrderHandler> logger)
     {
         _orderRepository = orderRepository;
         _carRepository = carRepository;
+        _logger = logger;
     }
     public async Task<Order> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
+        _logger.LogInformation(message:"Order created");
 
       //[Çözüldü] sorun => orderItem Id yi order a ekleyemiyorum çünkü orderItemı orderı yaratırken yaratıyorum ve daha yaratılmamış Itemin ıd olamayacağı için ıd null kalıyor
 
