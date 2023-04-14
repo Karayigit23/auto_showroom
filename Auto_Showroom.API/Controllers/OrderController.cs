@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Auto_Showroom.Core.Command.OrderCommand;
 using Auto_Showroom.Core.Model;
 using Auto_Showroom.Core.Query.OrderQuery;
@@ -15,6 +17,10 @@ public class OrderController:ControllerBase
       
         _mediator = mediator;
     }
+    /// <summary>
+    /// Get All Order
+    /// </summary>
+    /// <returns>List of orders</returns>
     [HttpGet]
     public async Task<List<Order>> Get()
     {
@@ -22,29 +28,50 @@ public class OrderController:ControllerBase
         return await _mediator.Send(new GetAllOrderQuery());
         
     }
+    /// <summary>
+    /// Get Order By Id
+    /// </summary>
+    /// <param name="OrderId">The ID of the order to retrieve</param>
+    /// <returns>The retrieved order</returns>
     [HttpGet("{OrderId}")]
     public async Task<Order> GetById(int OrderId)
     {
         
         return await _mediator.Send( request: new GetOrderByIDQuery{Id = OrderId});
     }
+    /// <summary>
+    /// Create an Order
+    /// </summary>
+    /// <param name="newOrder">The data for the new order to be created</param>
+    /// <returns></returns>
     [HttpPost]
     public async Task Post ([FromBody] CreateOrderCommand newOrder)
     {
         await _mediator.Send(newOrder);
 
     }
+    /// <summary>
+    /// Update the Order
+    /// </summary>
+    /// <param name="OrderId">The ID of the order to be updated</param>
+    /// <param name="updateOrder">The updated order object</param>
+    /// <returns></returns>
     [HttpPut("{OrderId}")]
     public async Task Put(int OrderId, [FromBody]  UpdateOrderCommand updateOrder)
     {
-        if (OrderId!=updateOrder.OrderId)
+        if (OrderId!=updateOrder.Id)
         {
             BadRequest();
         }
 
-        updateOrder.OrderId = OrderId;
+        updateOrder.Id = OrderId;
         await _mediator.Send(updateOrder);
     }
+    ///<summary>
+    ///Delete the Order
+    /// </summary>
+    ///<param name="OrderId">The ID of the order to be deleted</param>
+    ///<returns></returns>
     [HttpDelete("{OrderId}")]
     public async Task Delete(int OrderId)
     {

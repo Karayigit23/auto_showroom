@@ -37,12 +37,10 @@ public class OrderRepository:IOrderRepository
     public async Task DeleteOrder(Order order)
     {
         var exOrder = await _context.Order
-                .Include(o => o.OrderItems)
-                .FirstOrDefaultAsync(o => o.Id == order.Id); 
+            .FirstOrDefaultAsync(o => o.Id == order.Id); 
 
             if (exOrder != null)
             {
-                _context.OrderItem.RemoveRange(exOrder.OrderItems);
                 _context.Order.Remove(exOrder); 
                 await _context.SaveChangesAsync(); 
             }

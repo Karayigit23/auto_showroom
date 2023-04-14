@@ -1,4 +1,5 @@
 using Auto_Showroom.Core.Command.OrderCommand;
+using Auto_Showroom.Core.Exceptions;
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
@@ -15,11 +16,11 @@ public class UpdateCarCommand:IRequest<Car>
    
 }
 
-public class UpdateCarCommandHandle : IRequestHandler<UpdateCarCommand,Car>
+public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand,Car>
 {
     private readonly ICarRepository _carRepository;
-    private readonly ILogger<UpdateCarCommandHandle> _logger;
-    public  UpdateCarCommandHandle(ICarRepository carRepository,ILogger<UpdateCarCommandHandle>logger)
+    private readonly ILogger<UpdateCarCommandHandler> _logger;
+    public  UpdateCarCommandHandler(ICarRepository carRepository,ILogger<UpdateCarCommandHandler>logger)
     {
         _carRepository = carRepository;
         _logger = logger;
@@ -29,7 +30,10 @@ public class UpdateCarCommandHandle : IRequestHandler<UpdateCarCommand,Car>
     {
         _logger.LogInformation(message:$"Called with CarId{request.Id}and car update");
         var car=await _carRepository.GetCarById(request.Id);
-        
+        if (car == null)
+        {
+            throw new CarNotFoundException("car.not.found.exception");
+        }
         car.Price = request.Price;
         car.Model = request.Model;
         

@@ -7,7 +7,7 @@ namespace Auto_Showroom.Core.Command.OrderCommand;
 
 public class UpdateOrderCommand:IRequest<Order>
 {
-    public int OrderId { get; set; }
+    public int Id { get; set; }
     public string PersonName { get; set; }
     public DateTime OrderDate { get; set; }
     public List<OrderItem> OrderItems { get; set; }
@@ -27,13 +27,13 @@ public class UpdateOrderCommandHandle : IRequestHandler<UpdateOrderCommand,Order
     }
     public async Task<Order> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation(message:$"Called with OrderId{request.OrderId}and order update");
-        var order = await _orderRepository.GetById(request.OrderId);
+        _logger.LogInformation(message:$"Called with OrderId{request.Id}and order update");
+        var order = await _orderRepository.GetById(request.Id);
 
         if (order == null)
         {
-            _logger.LogInformation(message:$"Order with Id{request.OrderId} not found");
-            throw new InvalidOperationException($"Order with id {request.OrderId} not found.");
+            _logger.LogInformation(message:$"Order with Id{request.Id} not found");
+            throw new InvalidOperationException($"Order with id {request.Id} not found.");
         }
 
         order.PersonName = request.PersonName;

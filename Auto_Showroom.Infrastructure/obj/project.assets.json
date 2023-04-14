@@ -2848,7 +2848,6 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Auto_Showroom.Core >= 1.0.0",
-      "FluentValidation >= 11.5.1",
       "Microsoft.EntityFrameworkCore >= 8.0.0-preview.2.23128.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0-preview.2.23128.3"
     ]
@@ -2894,10 +2893,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "FluentValidation": {
-            "target": "Package",
-            "version": "[11.5.1, )"
-          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.0-preview.2.23128.3, )"

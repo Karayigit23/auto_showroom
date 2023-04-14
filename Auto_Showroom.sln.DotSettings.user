@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f60ebd58_002De9f7_002D43f0_002Da20e_002Da629434a9c2b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="handle_when_car_is_not_exist_then_throw_exception" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.UpdateCarCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.CreateCarCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Query.GetCarByIDQueryHandlerTest.handle_when_car_is_not_exist_then_throw_exception&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.DeleteCarCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Query.GetAllCarQueryHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.OrdeCommand.UpdateOrderCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.OrdeCommand.CreateOrderCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Command.OrdeCommand.DeleteOrderCommandHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Query.OrderQuery.GetOrderByIDQueryHandlerTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::44555C4C-35AB-46D2-AB80-0DF56F17074E::net7.0::Auto_Showroom.Test.Core.Query.OrderQuery.GetAllOrderQueryHandlerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

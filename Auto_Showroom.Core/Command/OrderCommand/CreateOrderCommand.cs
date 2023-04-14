@@ -8,10 +8,8 @@ namespace Auto_Showroom.Core.Command.OrderCommand;
 public class CreateOrderCommand:IRequest<Order>
 {
     public string PersonName { get; set; } 
-   
-    public int Quantity { get; set; }
+ 
     
-    public int Price { get; set; }
     public List<OrderItem> OrderItems { get; set; }
     
     
@@ -32,12 +30,18 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Order>
         _carRepository = carRepository;
         _logger = logger;
     }
+
+    
+
     public async Task<Order> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation(message:"Order created");
 
       //[Çözüldü] sorun => orderItem Id yi order a ekleyemiyorum çünkü orderItemı orderı yaratırken yaratıyorum ve daha yaratılmamış Itemin ıd olamayacağı için ıd null kalıyor
-
+      if (request.OrderItems.Count == 0)
+      {
+          throw new Exception();
+      }
         
         var order = new Order
         {
@@ -57,6 +61,7 @@ public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Order>
                 Price = (int)(orderıt.Price*orderItem.Quantity)
                 
             };
+            
             order.OrderItems.Add(newOrderItem);
         }
        

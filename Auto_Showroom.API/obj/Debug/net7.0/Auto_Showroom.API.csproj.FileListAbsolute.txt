@@ -83,3 +83,16 @@
 /Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/MediatR.Extensions.Microsoft.DependencyInjection.dll
 /Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/obj/Debug/net7.0/Auto_Showroom.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/appsettings.Prod.json
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/Namotion.Reflection.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NJsonSchema.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NJsonSchema.Yaml.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.Annotations.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.AspNetCore.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.Core.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.Core.Yaml.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.Generation.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/NSwag.Generation.AspNetCore.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/YamlDotNet.dll
+/Users/yigit/RiderProjects/Auto_Showroom/Auto_Showroom.API/bin/Debug/net7.0/Auto_Showroom.API.xml

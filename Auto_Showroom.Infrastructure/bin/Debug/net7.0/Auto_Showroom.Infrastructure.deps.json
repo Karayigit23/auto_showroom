@@ -9,7 +9,6 @@
       "Auto_Showroom.Infrastructure/1.0.0": {
         "dependencies": {
           "Auto_Showroom.Core": "1.0.0",
-          "FluentValidation": "11.5.1",
           "Microsoft.EntityFrameworkCore": "8.0.0-preview.2.23128.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0-preview.2.23128.3"
         },

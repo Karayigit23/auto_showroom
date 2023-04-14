@@ -1,4 +1,5 @@
 
+using Auto_Showroom.Core.Exceptions;
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
@@ -26,7 +27,12 @@ public class GetCarByIDHandle : IRequestHandler<GetCarByIDQuery, Car>
     public async Task<Car> Handle(GetCarByIDQuery request, CancellationToken cancellationToken)
     {
         _logger.LogInformation(message:$"{request.Id} car came");
-        return await _carRepository.GetCarById(request.Id);
+       var result= await _carRepository.GetCarById(request.Id);
+       if (result==null)
+       {
+           throw new CarNotFoundException($"car not found carId: {request.Id}");
+       }
+       return result;
     }
 }    
        

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Auto_Showroom.Core.Command;
 using Auto_Showroom.Core.Model;
 using Auto_Showroom.Core.Query.OrderItemQuery;
@@ -19,6 +21,10 @@ public class OrderItemController:ControllerBase
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get All OrderItems
+        /// </summary>
+        /// <returns>List of orderItems</returns>
         [HttpGet]
         public async Task<List<OrderItem>> Get()
         {

@@ -1,7 +1,10 @@
 
+using System.ComponentModel.DataAnnotations;
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Logging;
 
 namespace Auto_Showroom.Infrastructure.Auto_Showroom.Operations.PostCar;
@@ -32,20 +35,26 @@ public class CreateCarHandler:IRequestHandler<CreateCarCommand,Car>
     {
         _logger.LogInformation(message:"Car created");
         var car = new Car();
-      try
-      {
-          car.Model = request.Model;
-          car.Price = request.Price;
-          
-      }
-      catch (Exception e)
-      {
-          throw new InvalidOperationException("this car is registered");
-      }
+        try
+        {
+           
+            car.Model = request.Model;
+            car.Price = request.Price;
+            
+            
 
+        }
+        catch (Exception ex)
+        {
 
+            throw new BadHttpRequestException(message: "sssds");
+        }
+        
+        
+       
 
-      await _carRepository.AddCar(car);
+        await _carRepository.AddCar(car);
+      
       return car;
 
 
@@ -54,4 +63,6 @@ public class CreateCarHandler:IRequestHandler<CreateCarCommand,Car>
 
     
 }
+
+
 

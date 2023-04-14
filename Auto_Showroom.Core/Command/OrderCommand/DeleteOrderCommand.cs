@@ -23,8 +23,15 @@ public class DeleteOrderCommandHandle : IRequestHandler<DeleteOrderCommand>
     {
         _logger.LogInformation(message:$"{request.Id} order called");
         var order = await _orderRepository.GetById(request.Id);
-      
-        _logger.LogInformation(message:$"order deleted");
+        if (order==null)
+        {
+            throw new Exception();
+        }
+
+
+        _logger.LogInformation(message: $"order deleted");
+        
+            
         await _orderRepository.DeleteOrder(order);
          //?? (çözüldü) sorun=>order başarılı bir şekilde siliniyor ama oluşturulan orderıtem silinen orderla beraber silinmiyor order ıtem delete işlemi yapılmaya çalışıldı ama başarılı olmadı
        return Unit.Value; //(sorun değilmiş) mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)

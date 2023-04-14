@@ -22,6 +22,7 @@ public class GetAllOrderQuery:IRequest<List<Order>>
     public async Task<List<Order>> Handle(GetAllOrderQuery request, CancellationToken cancellationToken)
     {
         _logger.LogInformation(message:"All the orders have came");
+        
         return await _OrderRepository.GetOrder();
 
            

@@ -24,6 +24,10 @@ public class DeleteCarCommandHandle : IRequestHandler<DeleteCarCommand>
     {
         _logger.LogInformation(message:$"Car deleted");
         var car = await _carRepository.GetCarById(request.Id);
+        if (car == null)
+        {
+            throw new Exception();
+        }
         await _carRepository.DeleteCar(car);
        return Unit.Value; //mediatR sürümünü düşürdüğüm için hata verdi oyüzden bu değişiklik yapldı (sürümün düşürme sebebim dependencyInjection sürümü mediatr ile uyuşmuyor)
     }

@@ -1,3 +1,4 @@
+using Auto_Showroom.Core.Exceptions;
 using Auto_Showroom.Core.Interfaces;
 using Auto_Showroom.Core.Model;
 using MediatR;
@@ -23,7 +24,14 @@ public class GetOrderByIDHandle : IRequestHandler<GetOrderByIDQuery, Order>
     public async Task<Order> Handle(GetOrderByIDQuery request, CancellationToken cancellationToken)
     {
         _logger.LogInformation(message:$"{request.Id} order came");
-        return await _orderRepository.GetById(request.Id);
+        var ıd=await _orderRepository.GetById(request.Id);
+        if (ıd==null)
+        { 
+            throw new OrderNotFoundException($"order.not.found orderId: {request.Id}");
+            
+        }
+
+        return ıd;
     }
 }    
 

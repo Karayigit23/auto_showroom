@@ -4,10 +4,13 @@ using Auto_Showroom.Infrastructure;
 using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.GetCar;
 using Auto_Showroom.Infrastructure.Auto_Showroom.Operations.PostCar;
 using Auto_Showroom.Infrastructure.Repositories;
-
+using Auto_Showroom.Middlewares;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,13 +19,18 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 builder.Services.AddMediatR(typeof(CreateCarCommand));
 builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddDbContext<AppDbContext>(p => p.UseSqlServer("Server =localhost, 1433; Database = testDB10; User Id =SA; Password =MyPass@word;Persist Security Info=False;Encrypt=False"));
+builder.Services.AddSwaggerDocument(p=>p.PostProcess=(o => { o.Info.Title = "Auto_Showroom";}));
+
+
+builder.Services.AddDbContext<AppDbContext>(p => p.UseSqlServer(builder.Configuration.GetValue<string>("sqlConnection")));
 
 builder.Services.AddControllers();
 var app = builder.Build();
 app.UseAuthorization();
-
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.MapControllers();
+app.UseOpenApi();
+app.UseSwaggerUi3();
 
 app.MapGet("/", () => "Hello World");
 
