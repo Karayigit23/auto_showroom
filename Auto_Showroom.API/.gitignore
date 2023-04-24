@@ -2,4 +2,8 @@
 bin/
 obj/
 DS_Store
+obj
+../.vs
+../.idea
+bin
 
