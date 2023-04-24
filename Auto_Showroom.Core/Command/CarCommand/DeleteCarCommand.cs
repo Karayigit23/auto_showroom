@@ -1,5 +1,6 @@
 using Auto_Showroom.Core.Command.OrderCommand;
 using Auto_Showroom.Core.Interfaces;
+using Auto_Showroom.Core.Model;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

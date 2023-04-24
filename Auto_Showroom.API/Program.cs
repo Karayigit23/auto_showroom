@@ -26,6 +26,14 @@ builder.Services.AddDbContext<AppDbContext>(p => p.UseSqlServer(builder.Configur
 
 builder.Services.AddControllers();
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetService<AppDbContext>();
+    context.Database.EnsureCreated();
+    context.Database.Migrate();
+}
+
 app.UseAuthorization();
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.MapControllers();

@@ -20,12 +20,13 @@ public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand,Car>
 {
     private readonly ICarRepository _carRepository;
     private readonly ILogger<UpdateCarCommandHandler> _logger;
-    public  UpdateCarCommandHandler(ICarRepository carRepository,ILogger<UpdateCarCommandHandler>logger)
+
+    public UpdateCarCommandHandler(ICarRepository carRepository, ILogger<UpdateCarCommandHandler> logger)
     {
         _carRepository = carRepository;
         _logger = logger;
     }
-    
+
     public async Task<Car> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation(message:$"Called with CarId{request.Id}and car update");
